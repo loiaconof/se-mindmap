@@ -32,7 +32,8 @@ jobs:
         with:
           branch: gh-pages
           folder: .vitepress/dist
-          clean: true        
+          clean: true
         env:
-          GITHUB_TOKEN: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
 
