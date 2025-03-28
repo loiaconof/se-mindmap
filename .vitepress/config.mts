@@ -20,6 +20,19 @@ export default defineConfig({
         ]
       },
       {
+        text: 'cloud',
+        items: [
+          { 
+            text: 'aws', 
+            link: '/docs/cloud/aws/index.md', 
+            collapsed: true, 
+            items: [
+              { text: 'IAM', link: '/docs/cloud/aws/services/iam.md' },
+            ] 
+          },
+        ]
+      },
+      {
         text: 'devops',
         items: [
           { text: 'docker', link: '/docs/devops/docker/index.md' },
