@@ -1,6 +1,6 @@
 # IAM
 
-This service allow the owner to add users and groups inside the organisation.
+This service allow to manage users and groups inside the organisation.
 
 ## Policies
 
