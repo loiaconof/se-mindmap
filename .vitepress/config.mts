@@ -28,6 +28,7 @@ export default defineConfig({
             collapsed: true, 
             items: [
               { text: 'IAM', link: '/docs/cloud/aws/services/iam.md' },
+              { text: 'EC2', link: '/docs/cloud/aws/services/ec2.md' },
             ] 
           },
         ]
