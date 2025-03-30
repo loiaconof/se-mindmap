@@ -4,6 +4,7 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: "loiaconof-se-mindmap",
   description: "A VitePress Site",
+  base: '/se-mindmap/',
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
