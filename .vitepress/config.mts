@@ -9,20 +9,17 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Examples', link: '/markdown-examples' }
+      { text: 'Index', link: '/docs/index.md' },
     ],
 
     sidebar: [
       {
-        text: 'Examples',
-        items: [
-          { text: 'Markdown Examples', link: '/markdown-examples' },
-          { text: 'Runtime API Examples', link: '/api-examples' }
-        ]
-      },
-      {
         text: 'cloud',
         items: [
+          {
+            text: 'services',
+            link: '/docs/cloud/services/index.md',
+          },
           { 
             text: 'aws', 
             link: '/docs/cloud/aws/index.md', 
@@ -36,14 +33,16 @@ export default defineConfig({
       },
       {
         text: 'devops',
+        collapsed: true,
         items: [
           { text: 'docker', link: '/docs/devops/docker/index.md' },
+          { text: 'kubernetes', link: '/docs/devops/kubernetes/index.md' },
         ]
       }
     ],
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
+      { icon: 'github', link: 'https://github.com/loiaconof/se-mindmap' }
     ]
   }
 })
