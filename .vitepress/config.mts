@@ -1,5 +1,20 @@
 import { defineConfig } from 'vitepress'
 
+const dataSystems = {
+  text: 'Data Systems',
+  items: [
+    { 
+      text: 'Reliable, Scalable and Maintainable Applications', 
+      link: '/docs/data-systems/index.md',
+      collapsed: true,
+      items: [
+        { text: 'Reliability', link: '/docs/data-systems/concerns/reliability.md' },
+        { text: 'Scalability', link: '/docs/data-systems/concerns/scalability.md' },
+        { text: 'Maintainability', link: '/docs/data-systems/concerns/maintainability.md' },
+      ],
+    },
+  ]
+}
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "loiaconof-se-mindmap",
@@ -31,9 +46,9 @@ export default defineConfig({
           },
         ]
       },
+      { ...dataSystems },
       {
         text: 'devops',
-        collapsed: true,
         items: [
           { text: 'docker', link: '/docs/devops/docker/index.md' },
           { text: 'kubernetes', link: '/docs/devops/kubernetes/index.md' },
