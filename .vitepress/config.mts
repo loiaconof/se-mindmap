@@ -15,6 +15,21 @@ const dataSystems = {
     },
   ]
 }
+
+const softwareDesignArchitecture = {
+  text: 'Software Design / Architecture',
+  items: [
+    { 
+      text: 'Domain-Driven Design', 
+      link: '/docs/software-design-architecture/ddd/index.md',
+      collapsed: true,
+      items: [
+        { text: 'Strategic Design', link: '/docs/software-design-architecture/ddd/strategic-design.md' },
+        { text: 'Tactical Design', link: '/docs/software-design-architecture/ddd/tactical-design.md' },
+      ],
+    },
+  ]
+}
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "loiaconof-se-mindmap",
@@ -53,7 +68,8 @@ export default defineConfig({
           { text: 'docker', link: '/docs/devops/docker/index.md' },
           { text: 'kubernetes', link: '/docs/devops/kubernetes/index.md' },
         ]
-      }
+      },
+      { ...softwareDesignArchitecture },
     ],
 
     socialLinks: [
