@@ -26,6 +26,8 @@ const softwareDesignArchitecture = {
       items: [
         { text: 'Strategic Design', link: '/docs/software-design-architecture/ddd/strategic-design.md' },
         { text: 'Tactical Design', link: '/docs/software-design-architecture/ddd/tactical-design.md' },
+        { text: 'Event Storming', link: '/docs/software-design-architecture/ddd/event-storming.md' },
+        { text: 'Tactical Modernization', link: '/docs/software-design-architecture/ddd/tactical-modernization.md' },
       ],
     },
   ]
