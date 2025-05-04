@@ -30,6 +30,14 @@ const softwareDesignArchitecture = {
         { text: 'Tactical Modernization', link: '/docs/software-design-architecture/ddd/tactical-modernization.md' },
       ],
     },
+    {
+      text: 'Event-Driven Architecture',
+      link: '/docs/software-design-architecture/eda/index.md',
+      collapsed: true,
+      items: [
+        { text: 'Events', link: '/docs/software-design-architecture/eda/events.md' },
+      ],
+    }
   ]
 }
 // https://vitepress.dev/reference/site-config
