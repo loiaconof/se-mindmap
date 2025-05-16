@@ -1,45 +1,9 @@
 import { defineConfig } from 'vitepress'
+import { cloud } from './sidebar-configs/cloud'
+import { dataSystems } from './sidebar-configs/data-systems'
+import { softwareDesignArchitecture } from './sidebar-configs/software-design-architecture'
+import { devops } from './sidebar-configs/devops'
 
-const dataSystems = {
-  text: 'Data Systems',
-  items: [
-    { 
-      text: 'Reliable, Scalable and Maintainable Applications', 
-      link: '/docs/data-systems/index.md',
-      collapsed: true,
-      items: [
-        { text: 'Reliability', link: '/docs/data-systems/concerns/reliability.md' },
-        { text: 'Scalability', link: '/docs/data-systems/concerns/scalability.md' },
-        { text: 'Maintainability', link: '/docs/data-systems/concerns/maintainability.md' },
-      ],
-    },
-  ]
-}
-
-const softwareDesignArchitecture = {
-  text: 'Software Design / Architecture',
-  items: [
-    { 
-      text: 'Domain-Driven Design', 
-      link: '/docs/software-design-architecture/ddd/index.md',
-      collapsed: true,
-      items: [
-        { text: 'Strategic Design', link: '/docs/software-design-architecture/ddd/strategic-design.md' },
-        { text: 'Tactical Design', link: '/docs/software-design-architecture/ddd/tactical-design.md' },
-        { text: 'Event Storming', link: '/docs/software-design-architecture/ddd/event-storming.md' },
-        { text: 'Tactical Modernization', link: '/docs/software-design-architecture/ddd/tactical-modernization.md' },
-      ],
-    },
-    {
-      text: 'Event-Driven Architecture',
-      link: '/docs/software-design-architecture/eda/index.md',
-      collapsed: true,
-      items: [
-        { text: 'Events', link: '/docs/software-design-architecture/eda/events.md' },
-      ],
-    }
-  ]
-}
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "loiaconof-se-mindmap",
@@ -53,32 +17,9 @@ export default defineConfig({
     ],
 
     sidebar: [
-      {
-        text: 'cloud',
-        items: [
-          {
-            text: 'services',
-            link: '/docs/cloud/services/index.md',
-          },
-          { 
-            text: 'aws', 
-            link: '/docs/cloud/aws/index.md', 
-            collapsed: true, 
-            items: [
-              { text: 'IAM', link: '/docs/cloud/aws/services/iam.md' },
-              { text: 'EC2', link: '/docs/cloud/aws/services/ec2.md' },
-            ] 
-          },
-        ]
-      },
+      { ...cloud },
       { ...dataSystems },
-      {
-        text: 'devops',
-        items: [
-          { text: 'docker', link: '/docs/devops/docker/index.md' },
-          { text: 'kubernetes', link: '/docs/devops/kubernetes/index.md' },
-        ]
-      },
+      { ...devops },
       { ...softwareDesignArchitecture },
     ],
 
