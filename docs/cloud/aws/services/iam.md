@@ -33,6 +33,10 @@ Users or Groups can be assigned JSON documents called **policies** to handle per
 ```
 :::
 
+## Password Policy 
+
+IAM lets you set rules for strong passwords, like minimum length, complexity, expiration, and reuse prevention.
+
 ## Security Tools
 
 - **IAM Credential Report** ( account level )
