@@ -25,6 +25,23 @@ AWS services are services dislocated
   - Rekognition : Software as a Service
   - [Cloud Shell](/docs/cloud/aws/services/cloud-shell.md) : AWS Cli on browser
 
+## AWS Networking
+
+- Use **Elastic IP** for fixed, manually managed IPs.
+- Use **Route 53** for smart, global DNS routing.
+- Use **Load Balancers** for distributing traffic across multiple targets with built-in health checks and scalability.
+
+::: details Comparison
+| Feature              | Elastic IP              | Route 53                  | Load Balancer                |
+|----------------------|-------------------------|---------------------------|------------------------------|
+| Type                 | Static IP               | DNS Service               | Traffic Distributor          |
+| Scalability          | Manual                  | High                      | High                         |
+| Failover             | Manual                  | DNS-based                 | Automatic                    |
+| Load Distribution    | No                      | No                        | Yes                          |
+| Best Use Case        | Fixed IP for single EC2 | Domain & global routing   | High-availability apps       |
+| Cost Efficiency      | Free when attached      | Low                       | Pay per use (varies by type) |
+:::
+
 ## Links
 
 - [AWS Trainings](https://aws.amazon.com/training/)

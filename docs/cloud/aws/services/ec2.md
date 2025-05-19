@@ -95,3 +95,11 @@ It mainly consists in the capability of :
 | Custom TCP Rule | TCP      | 4567       | 0.0.0.0/0         | java app       |
 ```
 :::
+
+### 3. Elastic IPs
+
+- Static, public IPv4 addresses for dynamic cloud computing.
+- Useful for replacing failed instances without changing your IP address.
+
+## Saving Plans
+

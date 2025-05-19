@@ -9,7 +9,7 @@ There are different types of cloud development services, those differ on how muc
 - PaaS: Platform as a Service
 - SaaS: Software as a Service
 
-## Responsabilities
+::: details Responsabilities
 
 ::: code-group
 
