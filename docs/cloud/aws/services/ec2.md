@@ -101,5 +101,122 @@ It mainly consists in the capability of :
 - Static, public IPv4 addresses for dynamic cloud computing.
 - Useful for replacing failed instances without changing your IP address.
 
+### 4. Placement Groups
+
+-
+
 ## Saving Plans
 
+- **On-Demand Instances**
+- **Reserved Instances (1 & 3 years)**
+- **Convertible Reserved Instances**
+- **Savings Plans (1 & 3 years)**
+- **Spot Instances**
+- **Dedicated Hosts**
+- **Dedicated Instances**
+- **Capacity Reservations**
+
+::: details
+
+### 1. On-Demand Instances
+
+- Pay for what you use ( per second/hour depending on the os )
+- Highest cost but no upfront payment
+- No long-term commitment
+- Recommended for short-term and un-interrupted workloads, where you can't predict how the application will behave
+
+### 2. Reserved Instances (1 & 3 years)
+
+- Up to **72% discount** compared to On-demand
+- You reserve a **specific instance attributes** ( Instance Type, Region, Tenancy, OS )
+- **Reservation Period** : 1 year (+discount) or 3 years (+++discount)
+- **Payment Options** : No Upfront (+), Partial Upfront (++), All Upfront (+++)
+- **Reserved Instance’s Scope** : Regional or Zonal ( reserve capacity in an AZ )
+- Recommended for steady-state usage applications ( think database )
+- You can buy and sell in the Reserved Instance Marketplace
+
+#### 2.1 Convertible Reserved Instances
+
+- Can change the EC2 instance type, instance family, OS, scope and tenancy
+- Up to 66% discount
+
+### 3. Savings Plans (1 & 3 years)
+
+- Get a discount based on long-term usage (up to 72% - same as Reserved Instances)
+- Commit to a certain type of usage ($10/hour for 1 or 3 years)
+- Usage beyond EC2 Savings Plans is billed at the On-Demand price
+- Locked to a specific instance family & AWS region (e.g., M5 in us-east-1)
+  - Flexible across:
+    - Instance Size (e.g., m5.xlarge, m5.2xlarge)
+    - OS (e.g., Linux, Windows)
+    - Tenancy (Host, Dedicated, Default)
+
+### 4. Spot Instances
+
+- Can get a discount of up to 90% compared to On-demand
+- Instances that you can “lose” at any point of time if your max price is less than the
+current spot price
+- The **MOST cost-efficient** instances in AWS
+- **Useful for workloads that are resilient to failure**
+  - Batch jobs
+  - Data analysis
+  - Image processing
+  - Any distributed workloads
+  - Workloads with a flexible start and end time
+- **Not suitable for critical jobs or databases**
+
+### 5. Dedicated Hosts
+
+- A physical server with EC2 instance capacity fully dedicated to your use
+- Allows you address **compliance requirements and use your existing server - bound software licenses** (per-socket, per-core, pe—VM software licenses)
+- **Purchasing Options**:
+  - **On-demand** – pay per second for active Dedicated Host
+  - **Reserved** - 1 or 3 years (No Upfront, Partial Upfront, All Upfront)
+- The most expensive option
+- Useful for **software that have complicated licensing model** (BYOL – Bring Your Own License)
+- Or for companies that have strong regulatory or compliance needs
+
+### 6. Dedicated Instances
+
+- Instances run on hardware that’s dedicated to you
+- May share hardware with other instances in same account
+- No control over instance placement (can move hardware after Stop / Start)
+
+### 7. Capacity Reservations
+
+- Reserve **On-Demand** instances capacity in a specific AZ for any
+duration
+- You always have access to EC2 capacity when you need it
+- **No time commitment** (create/cancel anytime), **no billing discounts**
+- Combine with Regional Reserved Instances and Savings Plans to benefit from billing discounts
+- You’re charged at On-Demand rate whether you run instances or not
+- Suitable for short-term, uninterrupted workloads that needs to be in a specific AZ
+
+:::
+
+
+
+
+
+<!-- ## Security Best Practices
+
+- Use **security groups** to control traffic.
+- Enable **IAM roles** for EC2 to securely access AWS services.
+- Regularly **patch and update** AMIs and applications.
+- Enable **CloudWatch** and **CloudTrail** for monitoring and auditing.
+
+## EC2 Lifecycle
+
+1. **Launch**: Choose AMI, instance type, key pair, storage, and networking.
+2. **Running**: Instance is active and accessible.
+3. **Stop/Start**: Retain instance and data (EBS) but pause compute resources.
+4. **Reboot**: Restart the instance without changing its configuration.
+5. **Terminate**: Instance and attached instance store volumes are deleted.
+
+
+## Monitoring and Management
+
+- **Amazon CloudWatch**: Monitor instance metrics and set alarms.
+- **EC2 Dashboard**: Manage instances, volumes, and snapshots.
+- **AWS Systems Manager**: Automate common admin tasks.
+- **Auto Scaling**: Automatically adjust capacity to maintain performance. -->
