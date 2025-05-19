@@ -14,14 +14,17 @@
 AWS services are services dislocated
 
 - AWS Global Services:
-  - [IAM](/docs/cloud/aws/services/iam.md) : Identity and Access Management
+  - [Identity and Access Management (IAM)](/docs/cloud/aws/services/iam.md) : Identity and Access Management
   - Route 53 : DNS service
   - CDN : Content Delivery Network
   - WAF : Web Application Firewall
 - AWS Region-scoped services ( [Region Table](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/) ):
-  - [EC2](/docs/cloud/aws/services/ec2.md) : Infrastructure as a Service
+  - [Elastic Compute Cloud (EC2)](/docs/cloud/aws/services/ec2.md) : Infrastructure as a Service
   - Elastic Beanstalk : Platform as a Service
   - Lambda : Function as a Service
   - Rekognition : Software as a Service
+  - [Cloud Shell](/docs/cloud/aws/services/cloud-shell.md) : AWS Cli on browser
 
+## Links
 
+- [AWS Trainings](https://aws.amazon.com/training/)

@@ -1,12 +1,35 @@
-# AWS IAM: Users & Groups
+# AWS Identity and Access Management (IAM)
 
-AWS IAM ( Identity and Access Management ), is a service that allows to manage users and groups inside the organization.
+**AWS Identity and Access Management (IAM)** is a web service that enables secure control over access to AWS services and resources. It allows you to manage permissions by creating and managing users, groups, roles, and policies.
 
-**Users** are people within the organization and can be grouped, altought **Groups** cannot contain other groups.
+## Key Concepts
 
-## Policies
+### 1. Users
+- Represents an individual person
 
-Users or Groups can be assigned JSON documents called **policies** to handle permissions. There policies define the **permissions** of the users applying the **least privilage principle** ( don't give more permissions than a user needs )
+### 2. Groups
+- A collection of IAM users
+- Permissions assigned to the group are inherited by its users
+- Simplifies permission management for multiple users
+- Groups can not contain other groups
+
+### 3. Roles
+- An IAM identity with a set of permissions, like a service.
+- Can be assumed by:
+  - IAM users
+  - Applications
+  - AWS services
+  - Users from other AWS accounts or identity providers
+- Provides temporary security credentials.
+
+### 4. Policies
+- JSON documents that define permissions.
+- Can be:
+  - **Managed Policies**
+    - AWS-managed (predefined by AWS)
+    - Customer-managed (created by you)
+  - **Inline Policies**
+    - Embedded directly into a single user, group, or role
 
 ::: details Policy Example
 ```json
@@ -33,9 +56,9 @@ Users or Groups can be assigned JSON documents called **policies** to handle per
 ```
 :::
 
-## Password Policy 
+### 5. Identity Providers (IdPs)
 
-IAM lets you set rules for strong passwords, like minimum length, complexity, expiration, and reuse prevention.
+- Used for identity federation.
 
 ## Security Tools
 
@@ -45,12 +68,29 @@ IAM lets you set rules for strong passwords, like minimum length, complexity, ex
   - Access Advisor show the service permissions granted to a user and when those serviceswere last accessed
   - you can use this information to revise your policies
 
+## Common IAM Use Cases
 
-## Guidelines and Best Practices
+- Create IAM users for individual access.
+- Assign users to groups to manage permissions.
+- Use roles to allow applications to access resources.
+- Use policies to define granular access controls.
+- Enable cross-account access using IAM roles.
+- Configure multi-factor authentication (MFA) for extra security.
 
-- Don't use root account except for AWS account setup
-- One physical user = One AWS user
-- Manage security at group level, assign users to groups and assign permissions to groups
-- Security first of all, strong password policy and enforce use MFA
-- Create and use Roles for giving permissions to AWS services
-- Audit permissions of your account using IAM Security Tools
+## Security Best Practices
+
+- **Least Privilege**: Grant only the permissions required to perform tasks.
+- **Manage security at group level**: assign users to groups and assign permissions to groups
+- **Use Roles for Applications**: Avoid using long-term access keys.
+- **Enable MFA**: Add an extra layer of security for users.
+- **Rotate Credentials Regularly**: Enforce best practices for key and password rotation.
+- **Monitor with CloudTrail**: Track IAM activity and changes.
+- **Audit permissions**: of your account using IAM Security Tools
+
+
+## Resources
+
+- [IAM Documentation (AWS Official)](https://docs.aws.amazon.com/IAM/latest/UserGuide/)
+- [IAM Policy Reference](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html)
+- [Best Practices](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html)
+

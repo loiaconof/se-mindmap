@@ -18,8 +18,9 @@ export const cloud = {
           text: 'Services',
           collapsed: true,
           items: [
-            { text: 'IAM', link: '/docs/cloud/aws/services/iam.md' },
+            { text: 'Cloud Shell', link: '/docs/cloud/aws/services/cloud-shell.md' },
             { text: 'EC2', link: '/docs/cloud/aws/services/ec2.md' },
+            { text: 'IAM', link: '/docs/cloud/aws/services/iam.md' },
           ],
         },
       ]
