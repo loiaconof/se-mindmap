@@ -103,7 +103,33 @@ It mainly consists in the capability of :
 
 ### 4. Placement Groups
 
--
+- Provide control over how instances are placed on the underlying hardware to optimize performance and availability
+- Placement Group Types:
+  - **Cluster Placement Group**
+    - **Purpose**: Achieve low network latency and high network throughput
+    - **Placement**: Instances are placed physically close within a single Availability Zone
+    - **Use Case**: High-performance computing (HPC), big data workloads, tightly coupled node-to-node communication
+  - **Spread Placement Group**
+    - **Purpose**: Maximize availability by placing instances on distinct hardware
+    - **Placement**: Each instance is placed on a separate rack (separate hardware)
+    - **Use Case**: Critical applications where hardware failure must not impact multiple instances
+    - **Limit**: Up to 7 running instances per AZ per spread group
+  - **Partition Placement Group**
+    - **Purpose**: Separate groups of instances (partitions) to minimize failure impact
+    - **Placement**: Instances are divided into partitions, each on distinct racks with isolated network and power
+    - **Use Case**: Large-scale distributed systems like HDFS, Cassandra, or Kafka
+    - **Limit**: Up to 7 partitions per AZ (depending on the instance type and region)
+
+### 5. Elastic Network Interfaces (ENI)
+
+- Represents a **virtual network card** inside a specific availability zone (AZ)
+- Can be **created independently** and **attached on the fly** (move them) on EC2 instances **for failover**
+- The ENI can have the **following attributes**:
+  - Primary private IPv4, one or more secondary IPv4
+  - One Elastic IP (IPv4) per private IPv4
+  - One Public IPv4
+  - One or more security groups
+  - A MAC address
 
 ## Saving Plans
 
