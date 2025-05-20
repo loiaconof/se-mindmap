@@ -10,9 +10,7 @@ It mainly consists in the capability of :
 - Distributing load across machines (ELB)
 - Scaling the services using an auto-scaling group (ASG)
 
-## Key Concepts
-
-### 1. Instances
+## Instances
 
 - Virtual servers for running applications
 - [Instance Types](https://aws.amazon.com/ec2/instance-types/) include:
@@ -26,9 +24,6 @@ It mainly consists in the capability of :
 ::: details Instance Types
 
 ::: code-group
-``` md [Naming Convention]
-```
-
 ``` md [General Purpose]
 - Great for diversity of workloads such as web servers or code repositories
 - Balance between
@@ -69,7 +64,7 @@ It mainly consists in the capability of :
 ```
 :::
 
-### 2. Security Groups
+## Security Groups
 
 - Virtual firewalls that control inbound and outbound traffic on EC2 instances
 - Security groups rules can reference by IP or by security group
@@ -96,12 +91,12 @@ It mainly consists in the capability of :
 ```
 :::
 
-### 3. Elastic IPs
+## Elastic IPs
 
 - Static, public IPv4 addresses for dynamic cloud computing.
 - Useful for replacing failed instances without changing your IP address.
 
-### 4. Placement Groups
+## Placement Groups
 
 - Provide control over how instances are placed on the underlying hardware to optimize performance and availability
 - Placement Group Types:
@@ -120,7 +115,7 @@ It mainly consists in the capability of :
     - **Use Case**: Large-scale distributed systems like HDFS, Cassandra, or Kafka
     - **Limit**: Up to 7 partitions per AZ (depending on the instance type and region)
 
-### 5. Elastic Network Interfaces (ENI)
+## Elastic Network Interfaces (ENI)
 
 - Represents a **virtual network card** inside a specific availability zone (AZ)
 - Can be **created independently** and **attached on the fly** (move them) on EC2 instances **for failover**
@@ -130,17 +125,87 @@ It mainly consists in the capability of :
   - One Public IPv4
   - One or more security groups
   - A MAC address
+- [More on ENI](https://aws.amazon.com/blogs/aws/new-elastic-network-interfaces-in-the-virtual-private-cloud/)
+
+## Hibernate
+
+- EC2 Hibernate allows the **in-memory (RAM) state preservation writing the RAM state to a file in the root EBS volume**
+- Limitations:
+  - The **root EBS Volume must be encrypted**
+  - Instance **RAM Size must be less than 150 GB**
+  - An instance **can NOT be hibernated more than 60 days**
+- **Use cases**:
+  - Long-running processing
+  - Saving the RAM state
+  - Services that take time to initialize
+
+## Elastic Block Store (EBS) Volumes
+
+- An EBS Volume is a **network drive** that can attached and detached to a instance while they run allowing this instance to **persist data**
+- Can only be **mounted to one instance at a time**
+- **Limitations**:
+  - bound to a **specific AZ**
+  - Have a **provisoned capacity**
+- **Snapshots**:
+  - Recommended to **detach a volume before this operation**
+  - Snapshots has **not limitations across AZ or Region**
+  - **Features**:
+    - **EBS Snapshot Archive**
+      - Move a Snapshot to an ”archive tier” that is 75% cheaper
+      - Takes within 24 to 72 hours for restoring the archive
+    - **Recycle Bin for EBS Snapshots**
+      - Setup rules to retain deleted snapshots so you can recover them after an accidental deletion
+      - Specify retention (from 1 day to 1 year)
+    - **Fast Snapshot Restore (FSR)**
+      - Force full initialization of snapshot to have no latency on the first use (high costs)
+- **Volume Types**:
+  - **SSD**:
+    - **General purpose SSD** (gp2, gp3): balances price and performance for a wide variety of workloads
+    - **Provisioned IOPS (PIOPS) SSD** (io1, io2): Highest-performance SSD volume for mission-critical low-latency or high-throughput workloads
+      - **Use cases**: databases workloads (sensitive to storage perf and consistency)
+      - **Multi-Attach Support**:
+        - Each instance has full read & write permissions to the high-performance volume
+        - **Use cases**:
+          - Achieve **higher application availability** in clustered Linux applications (ex: Teradata)
+          - Applications must manage concurrent write operations
+        - Up to 16 EC2 Instances at a time
+        - Must use a file system that’s cluster-aware (not XFS, EXT4, etc…)
+  - **HDD**
+    - **Throughput Optimized HDD** (st1): Low cost HDD volume designed for frequently accessed, throughput- intensive workloads
+      - **Use cases**: Big Data, Data Warehouses, Log Processing
+    - **Cold HDD** (sc1): Lowest cost HDD volume designed for less frequently accessed workloads
+      - **Use cases**: Scenarios where lowest cost is important
+- **Encryption**
+  - An encrypted EBS volume has the following **characteristics**:
+    - Data at rest is encrypted inside the volume
+    - All the data in flight moving between the instance and the volume is encrypted
+    - All snapshots are encrypted
+    - All volumes created from the snapshot
+  - Encryption has a minimal impact on latency
+  - EBS Encryption leverages keys from KMS (AES-256)
+
+## Amazon Machine Images (AMIs) 
+
+- AMI are a **customization of an EC2 instance**
+  - You add your own software, configuration, operating system, monitoring…
+  - Faster boot / configuration time because all your software is pre-packaged
+- AMI are built for a **specific region** (and can be copied across regions)
+- You can launch EC2 instances from:
+  - **A Public AMI**: AWS provided
+  - **Your own AMI**: you make and maintain them yourself
+  - **An AWS Marketplace AMI**: an AMI someone else made
+- Before creating an AMI, **make sure the instance is stopped** (for data integrity)
 
 ## Saving Plans
 
-- **On-Demand Instances**
-- **Reserved Instances (1 & 3 years)**
-- **Convertible Reserved Instances**
-- **Savings Plans (1 & 3 years)**
-- **Spot Instances**
-- **Dedicated Hosts**
-- **Dedicated Instances**
-- **Capacity Reservations**
+- On-Demand Instances
+- Reserved Instances (1 & 3 years)
+- Convertible Reserved Instances
+- Savings Plans (1 & 3 years)
+- Spot Instances
+- Dedicated Hosts
+- Dedicated Instances
+- Capacity Reservations
 
 ::: details
 
