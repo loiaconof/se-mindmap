@@ -19,7 +19,8 @@ AWS services are services dislocated
   - CDN : Content Delivery Network
   - WAF : Web Application Firewall
 - AWS Region-scoped services ( [Region Table](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/) ):
-  - [Elastic Compute Cloud (EC2)](/docs/cloud/aws/services/ec2.md) : Infrastructure as a Service
+  - [AWS Certificate Manager (ACM)](/docs/cloud/aws/services/acm.md): Provision, manage, deploy, and renew SSL/TLS certificates
+  - [Elastic Compute Cloud (EC2)](/docs/cloud/aws/services/ec2/index.md) : Infrastructure as a Service
   - Elastic Beanstalk : Platform as a Service
   - Lambda : Function as a Service
   - Rekognition : Software as a Service

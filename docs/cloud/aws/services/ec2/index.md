@@ -130,7 +130,7 @@ It mainly consists in the capability of :
 ## Hibernate
 
 - EC2 Hibernate allows the **in-memory (RAM) state preservation writing the RAM state to a file in the root EBS volume**
-- Limitations:
+- **Limitations**:
   - The **root EBS Volume must be encrypted**
   - Instance **RAM Size must be less than 150 GB**
   - An instance **can NOT be hibernated more than 60 days**
