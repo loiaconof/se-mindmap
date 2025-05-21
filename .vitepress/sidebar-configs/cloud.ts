@@ -19,7 +19,15 @@ export const cloud = {
           collapsed: true,
           items: [
             { text: 'Cloud Shell', link: '/docs/cloud/aws/services/cloud-shell.md' },
-            { text: 'EC2', link: '/docs/cloud/aws/services/ec2.md' },
+            { 
+              text: 'EC2', 
+              link: '/docs/cloud/aws/services/ec2/index.md',
+              collapsed: true,
+              items: [
+                { text: 'Storage', link: '/docs/cloud/aws/services/ec2/storage.md' },
+                { text: 'Load Balancers', link: '/docs/cloud/aws/services/ec2/load-balancers.md' },
+              ],
+            },
             { text: 'IAM', link: '/docs/cloud/aws/services/iam.md' },
           ],
         },
