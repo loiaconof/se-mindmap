@@ -1,6 +1,4 @@
-import endent from 'endent'
-
-export const loadBalancerDiagram = endent`
+export const loadBalancerDiagram = `
 flowchart LR
     subgraph CLIENTS [Clients]
         direction TB
