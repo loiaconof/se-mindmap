@@ -155,9 +155,13 @@ It mainly consists in the capability of :
 
 [EC2 Storage](/docs/cloud/aws/services/ec2/storage.md)
 
-## Load Balancers
+## Elastic Load Balancers (ELB)
 
 [ELB](/docs/cloud/aws/services/ec2/load-balancers.md)
+
+## Auto Scaling Group (ASG) 
+
+[ASG](/docs/cloud/aws/services/ec2/autoscaling-group.md)
 
 ## Saving Plans
 
