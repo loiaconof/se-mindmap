@@ -243,6 +243,30 @@ It mainly consists in the capability of :
 - **Limitations**:
   - **Not compatible with Windows based AMI**
 
+## EBS vs EFS vs Instance Store
+
+- **EBS**: Best for **single-instance storage** with **low latency** and **persistent block storage** needs (e.g., databases, root volumes).
+- **EFS**: Best for **multiple-instance** access with **scalable file storage** and **high availability** (e.g., shared configs, logs, web content).
+- **Instance Store**: Best for **temporary high-speed local storage** (e.g., buffers, scratch data, caches) where data loss is acceptable.
+
+::: details Comparison Table
+| Feature                          | EBS (Elastic Block Store)                         | EFS (Elastic File System)                           | Instance Store                                      |
+|----------------------------------|---------------------------------------------------|-----------------------------------------------------|-----------------------------------------------------|
+| **Type**                         | Block Storage                                     | File Storage (NFS)                                  | Ephemeral Block Storage                             |
+| **Persistence**                  | Persistent                                        | Persistent                                          | Non-persistent (lost on stop/terminate)            |
+| **Access**                       | One EC2 instance at a time                        | Multiple EC2 instances (shared)                     | One EC2 instance only                               |
+| **Performance Types**            | gp3, gp2, io2, io1, st1, sc1                      | General Purpose, Max I/O                            | Depends on instance type                            |
+| **Max Throughput**               | Up to 1,000 MiB/s                                 | Scales with usage (or provisioned)                  | Very high (dependent on instance)                   |
+| **Scalability**                  | Up to 16 TiB per volume                           | Virtually unlimited                                 | Fixed by instance                                   |
+| **Durability**                   | 99.999%                                           | 99.999999999%                                      | No durability guarantee                             |
+| **Backup Support**              | Snapshots via EBS                                | Backup via AWS Backup                              | Not supported                                       |
+| **Use Cases**                    | Databases, OS boot volumes, apps needing low latency | Shared web content, dev environments, home dirs     | Cache, temporary data, buffers                      |
+| **Pricing Model**                | Pay per GB + IOPS (provisioned if needed)         | Pay per GB + throughput mode                        | Included in EC2 price                               |
+| **Mounting Requirement**         | Attach to EC2, block device                       | Mount via NFSv4.1 or EFS mount helper               | Auto-attached on instance launch                    |
+| **Data Encryption**              | Supported (at rest and in transit)                | Supported (at rest and in transit)                  | Not supported                                       |
+| **Availability Zone Scope**      | Tied to single AZ (use EBS Multi-Attach or Snap for HA) | Regional (spans multiple AZs)                       | Tied to the EC2 host                                |
+:::
+
 ## Saving Plans
 
 - On-Demand Instances
