@@ -115,7 +115,7 @@ It mainly consists in the capability of :
     - **Use Case**: Large-scale distributed systems like HDFS, Cassandra, or Kafka
     - **Limit**: Up to 7 partitions per AZ (depending on the instance type and region)
 
-## Elastic Network Interfaces (ENI)
+## ENI - Elastic Network Interfaces
 
 - Represents a **virtual network card** inside a specific availability zone (AZ)
 - Can be **created independently** and **attached on the fly** (move them) on EC2 instances **for failover**
@@ -139,7 +139,19 @@ It mainly consists in the capability of :
   - Saving the RAM state
   - Services that take time to initialize
 
-## Elastic Block Store (EBS) Volumes
+## AMIs - Amazon Machine Images 
+
+- AMI are a **customization of an EC2 instance**
+  - You add your own software, configuration, operating system, monitoring…
+  - Faster boot / configuration time because all your software is pre-packaged
+- AMI are built for a **specific region** (and can be copied across regions)
+- You can launch EC2 instances from:
+  - **A Public AMI**: AWS provided
+  - **Your own AMI**: you make and maintain them yourself
+  - **An AWS Marketplace AMI**: an AMI someone else made
+- Before creating an AMI, **make sure the instance is stopped** (for data integrity)
+
+## EBS - Elastic Block Store
 
 - An EBS Volume is a **network drive** that can attached and detached to a instance while they run allowing this instance to **persist data**
 - Can only be **mounted to one instance at a time**
@@ -184,17 +196,52 @@ It mainly consists in the capability of :
   - Encryption has a minimal impact on latency
   - EBS Encryption leverages keys from KMS (AES-256)
 
-## Amazon Machine Images (AMIs) 
+::: details EBS Volume Types summary
 
-- AMI are a **customization of an EC2 instance**
-  - You add your own software, configuration, operating system, monitoring…
-  - Faster boot / configuration time because all your software is pre-packaged
-- AMI are built for a **specific region** (and can be copied across regions)
-- You can launch EC2 instances from:
-  - **A Public AMI**: AWS provided
-  - **Your own AMI**: you make and maintain them yourself
-  - **An AWS Marketplace AMI**: an AMI someone else made
-- Before creating an AMI, **make sure the instance is stopped** (for data integrity)
+| Name       | Type | Max IOPS | Max Throughput | Volume Size Range | Durability |
+|------------|------|----------|----------------|-------------------|------------|
+| `gp3`      | SSD  | 16,000   | 1,000 MiB/s    | 1 GiB – 16 TiB    | 99.8%      |
+| `gp2`      | SSD  | 16,000   | 250 MiB/s      | 1 GiB – 16 TiB    | 99.8%      |
+| `io2`      | SSD  | 64,000   | 1,000 MiB/s    | 4 GiB – 16 TiB    | 99.999%    |
+| `io1`      | SSD  | 64,000   | 1,000 MiB/s    | 4 GiB – 16 TiB    | 99.8%      |
+| `st1`      | HDD  | 500      | 500 MiB/s      | 125 GiB – 16 TiB  | 99.8%      |
+| `sc1`      | HDD  | 250      | 250 MiB/s      | 125 GiB – 16 TiB  | 99.8%      |
+:::
+
+## EFS - Elastic File System
+
+- **NFS file system** that allows multiple EC2 instances to access the same shared file system concurrently
+- **Configuration**:
+  - **Performance Modes** (set at EFS creation time):
+    - **General Purpose (default)**: latency-sensitive use cases (web server, CMS, etc…)
+    - **Max I/O**: higher latency, throughput, highly parallel (big data, media processing)
+  - **Throughput Modes**:
+    - **Bursting**: 1 TB = 50MiB/s + burst of up to 100MiB/s
+    - **Provisioned**: set your throughput regardless of storage size, ex: 1 GiB/s for 1 TB storage
+    - **Elastic**: automatically scales throughput up or down based on your workloads
+      - Up to 3GiB/s for reads and 1GiB/s for writes
+      - Used for unpredictable workloads
+- **Storage Classes**:
+  - **Storage Tiers**:
+    - **Standard**: for frequently accessed files
+    - **Infrequent access (EFS-IA)**: cost to retrieve files, lower price to store.
+    - **Archive**: rarely accessed data (few times each year), 50% cheaper
+  - **Availability and durability**:
+    - **Standard**: Multi-AZ, great for prod
+    - **One Zone**: One AZ, great for dev, backup enabled by default, compatible with IA (EFS One Zone-IA)
+  - **Features**:
+    - **Lifecycle Policies**: allows to move files between storage tiers for cost savings
+- **Use cases**:
+  - Content management and web serving
+  - Big data and analytics workloads
+  - Development environments and CI/CD pipelines
+- Uses:
+  - **NFSv4.1 protocol**
+  - **Security group** to control access to EFS
+- **Encryption at rest** using KMS
+- File system **scales automatically**, **pay-per-use**
+- **Limitations**:
+  - **Not compatible with Windows based AMI**
 
 ## Saving Plans
 
