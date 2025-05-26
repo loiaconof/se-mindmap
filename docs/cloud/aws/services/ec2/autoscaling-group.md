@@ -32,3 +32,10 @@ ASGs support multiple policy types to automate instance scaling:
 - Batch processing systems
 - High availability environments
 
+## Scaling Cooldowns
+
+After a scaling activity happens, you are in the **cooldown period** (default 300 seconds).
+
+**During the cooldown period**, the **ASG will not launch or terminate additional instances** (to allow for metrics to stabilize).
+
+Use a **ready-to-use AMI** to **reduce configuration time** in order to be serving request fasters and reduce the period.

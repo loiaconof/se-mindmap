@@ -18,18 +18,20 @@ export const cloud = {
           text: 'Services',
           collapsed: true,
           items: [
+            { text: 'Aurora', link: '/docs/cloud/aws/services/aurora.md' },
             { text: 'Cloud Shell', link: '/docs/cloud/aws/services/cloud-shell.md' },
             { 
               text: 'EC2', 
               link: '/docs/cloud/aws/services/ec2/index.md',
               collapsed: true,
               items: [
-                { text: 'Storage', link: '/docs/cloud/aws/services/ec2/storage.md' },
-                { text: 'Load Balancers', link: '/docs/cloud/aws/services/ec2/load-balancers.md' },
                 { text: 'Auto Scaling Group', link: '/docs/cloud/aws/services/ec2/autoscaling-group.md' },
+                { text: 'Load Balancers', link: '/docs/cloud/aws/services/ec2/load-balancers.md' },
+                { text: 'Storage', link: '/docs/cloud/aws/services/ec2/storage.md' },
               ],
             },
             { text: 'IAM', link: '/docs/cloud/aws/services/iam.md' },
+            { text: 'Relational Database Service', link: '/docs/cloud/aws/services/rds.md' },
           ],
         },
       ]

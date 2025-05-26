@@ -20,6 +20,8 @@ AWS services are services dislocated
   - WAF : Web Application Firewall
 - AWS Region-scoped services ( [Region Table](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/) ):
   - [AWS Certificate Manager (ACM)](/docs/cloud/aws/services/acm.md): Provision, manage, deploy, and renew SSL/TLS certificates
+  - [Aurora DSQL](/docs/cloud/aws/services/aurora.md): Serverless, distributed relational database optimized for transactional workloads
+  - [Relational Database Service (RDS)](/docs/cloud/aws/services/rds.md): Web service that makes it easier to set up, operate, and scale a relational database
   - [Elastic Compute Cloud (EC2)](/docs/cloud/aws/services/ec2/index.md) : Infrastructure as a Service
   - Elastic Beanstalk : Platform as a Service
   - Lambda : Function as a Service
