@@ -15,7 +15,7 @@ AWS services are services dislocated
 
 - AWS Global Services:
   - [Identity and Access Management (IAM)](/docs/cloud/aws/services/iam.md) : Identity and Access Management
-  - Route 53 : DNS service
+  - [Route 53](/docs/cloud/aws/services/route-53.md) : DNS service
   - CDN : Content Delivery Network
   - WAF : Web Application Firewall
 - AWS Region-scoped services ( [Region Table](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/) ):

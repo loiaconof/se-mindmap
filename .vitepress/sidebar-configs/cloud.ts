@@ -32,6 +32,7 @@ export const cloud = {
             },
             { text: 'IAM', link: '/docs/cloud/aws/services/iam.md' },
             { text: 'Relational Database Service', link: '/docs/cloud/aws/services/rds.md' },
+            { text: 'Route 53', link: '/docs/cloud/aws/services/route-53.md' },
           ],
         },
       ]

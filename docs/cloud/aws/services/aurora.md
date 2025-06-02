@@ -1,5 +1,7 @@
 # Amazon Aurora 
 
+## Overview
+
 Aurora DSQL is a serverless distributed SQL database that provides virtually unlimited scalability, highest availability, and zero infrastructure management.
 
 ::: details Supported Databases

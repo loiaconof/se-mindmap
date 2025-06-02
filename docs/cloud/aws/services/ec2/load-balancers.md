@@ -4,6 +4,8 @@ import { loadBalancerDiagram } from './diagrams.ts'
 
 # Elastic Load Balancers (ELB)
 
+## Overview
+
 Load Balances are servers that forward traffic to multiple servers (e.g. EC2 instances) downstream.
 
 ::: details Diagram
