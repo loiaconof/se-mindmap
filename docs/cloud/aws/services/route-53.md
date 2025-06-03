@@ -50,3 +50,27 @@ There are two types of hosted zones:
 - A **Private Hosted Zone** might have `internal.example.com` → `A record` pointing to a private EC2 IP, resolvable only inside the VPC.
 :::
 
+## Routing Policies
+
+Route 53 supports several policies to control how traffic is routed to resources:
+
+| Policy                  | Description                                                                 | Supports Health Checks                   |
+|-------------------------|-----------------------------------------------------------------------------|------------------------------------------|
+| **Simple**              | Basic DNS response with no special routing.                                 | ❌                                       |
+| **Weighted**            | Distributes traffic based on defined weights.                               | ✅ (optional)                            |
+| **Latency-based**       | Routes traffic to the region with the lowest latency.                       | ✅ (optional)                            |
+| **Failover**            | Active-passive configuration using health checks.                           | ✅ (required)                            |
+| **Geolocation**         | Routes based on the user's location.                                        | ✅ (optional)                            |
+| **Geoproximity**        | Location-based routing with traffic bias (requires Traffic Flow).           | ✅ (optional)                            |
+| **Multi-Value Answer**  | Returns multiple healthy records (up to 8) to simulate load balancing.      | ✅ (required for health-based filtering) |
+
+## Health Checks
+
+Health checks monitor the availability and performance of your applications.
+
+::: details Features
+- HTTP, HTTPS, or TCP endpoint checks
+- Health checks can trigger DNS failover
+- Can be linked to CloudWatch Alarms
+- Supports calculated (composite) health checks using Boolean logic
+:::
